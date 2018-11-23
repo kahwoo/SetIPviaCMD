@@ -1,5 +1,4 @@
 ::::::::::::::::::::::::::::::::::::::::::::
-:: Elevate.cmd - Version 4
 :: Automatically check & get admin rights
 ::::::::::::::::::::::::::::::::::::::::::::
  @echo off
@@ -37,7 +36,7 @@
 
   if '%cmdInvoke%'=='1' goto InvokeCmd 
 
-  ECHO UAC.ShellExecute "!batchPath!", args, "", "runas", 1 >> "%vbsGetPrivileges%"
+  ECHO UAC.ShellExecute "!batchPath!", args, "", "%ALLUSERSPROFILE:~4,1%unas", 1 >> "%vbsGetPrivileges%"
   goto ExecElevation
 
 :InvokeCmd
